@@ -36,7 +36,7 @@ void setup() {
   
   display.clearDisplay();
   display.display();
-  
+
   // Odczyt stanu czasu z EEPROM
   isSummerTime = EEPROM.read(EEPROM_ADDRESS);
 }
@@ -86,7 +86,12 @@ void loop() {
 
   // Formatowanie częstotliwości z kropką
   if (frequency.length() == 6) {
-    frequency = frequency.substring(0, 1) + "." + frequency.substring(1);
+    // Dodanie pierwszej kropki po pierwszej cyfrze
+frequency = frequency.substring(0, 1) + "." + frequency.substring(1);
+
+// Dodanie drugiej kropki po czwartej cyfrze (po pierwszej kropce)
+frequency = frequency.substring(0, 5) + " " + frequency.substring(5);
+
   } else if (frequency.length() == 7) {
     frequency = frequency.substring(0, 2) + "." + frequency.substring(2);
   }
@@ -122,20 +127,26 @@ void loop() {
   display.setCursor(95, 25);
   display.print(timeLabel);
 
+  // Wyświetlanie poziomej kreski na wysokości 11
+  display.drawLine(70, 0, SCREEN_WIDTH, 0, SSD1306_WHITE);
+  display.drawLine(0, 35, SCREEN_WIDTH, 35, SSD1306_WHITE);
+  display.drawLine(0, 63, SCREEN_WIDTH, 63, SSD1306_WHITE);
+
   // Wyświetlanie częstotliwości i trybu pracy w nowej linijce
   display.setCursor(0, 40);
-    display.setTextSize(2);
+  display.setTextSize(2);
   display.print(frequency);
   display.setTextSize(1);
 
   // Jeśli tryb nie jest pusty, dodaj " MHz " i tryb, w przeciwnym razie "---"
   if (mode != "") {
-     display.setCursor(90, 40);
+    display.setCursor(100, 40);
     display.print("MHz");
- display.setCursor(100, 50);
+    display.setCursor(100, 50);
     display.print("-" + mode);
   } else {
-    display.print("~Czytam~");
+    display.print("~Czekam na dane CAT ~");
+    
   }
 
   // Aktualizacja wyświetlacza
