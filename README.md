@@ -7,7 +7,6 @@
 <li>DS3231 RTC Module</li>
 <li>SSD1306 OLED Display</li>
 <li>Button for switching between summer and winter time</li>
-<li>EEPROM for storing the time mode (summer/winter)</li>
 </ul>
 
 <p><strong>Features</strong></p>
