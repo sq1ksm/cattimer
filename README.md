@@ -43,7 +43,7 @@
 <li>AM (Amplitude Modulation)</li>
 </ul>
 
-<p><strong>Example Code</strong></p>
+<p><strong>Example Code (First Versions)</strong></p>
 <pre>
 <code>
 #include &lt;Wire.h&gt;
