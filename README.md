@@ -34,7 +34,7 @@
 <li><strong>Switch Time Mode</strong>: Press the button to switch between summer and winter time. The selected mode will be displayed and saved.</li>
 </ol>
 
-<p><strong>Supported Modes by CAT</strong></p>
+<p><strong>Supported Modes by CAT (KENWOOD TS-480 & uSDX...)</strong></p>
 <ul>
 <li>LSB (Lower Side Band)</li>
 <li>USB (Upper Side Band)</li>
